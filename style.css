@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'TAN-Angleton';
+    src: url('img/TAN-Angleton-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Westonia';
+    src: url('img/Westonia-mL7Mx.ttf') format('truetype');
+}
+
+:root {
+    --bg-pink: #fdfafb;
+    --pink-tint: #f5ebeefe;
+    --burgundy-text: #59353e;
+    --text-dark: #3a2e31;
+    --text-muted: #756267;
+    --gold-base: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-dark: #aa820a;
+    --white: #ffffff;
+    --border-gold: rgba(212, 175, 55, 0.45);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-pink);
+    color: var(--text-dark);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* TOAST LUXURY */
+.toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--burgundy-text); color: var(--white); padding: 14px 26px; border-radius: 4px;
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    box-shadow: 0 15px 35px rgba(89,53,62,0.35); z-index: 9999; opacity: 0; 
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;
+    border: 1px solid var(--gold-base); display: flex; align-items: center; gap: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+/* INTRO CINEMATOGRÁFICA SOBRE ROSA */
+#contenedor-principal {
+    position: fixed; inset: 0; z-index: 5000; background: #faeff2;
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+}
+#videoSobre { width: 100%; height: 100%; object-fit: cover; display: none; }
+#imgSobreEstetica { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; transition: opacity 0.6s ease; }
+#capa-boton { position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); z-index: 5001; width: 90%; max-width: 320px; }
+.boton-editorial-inicio {
+    background: rgba(255, 255, 255, 0.95); color: var(--burgundy-text); padding: 16px 28px; border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif; font-size: 0.85rem; letter-spacing: 2.5px; font-weight: 500;
+    text-transform: uppercase; box-shadow: 0 12px 30px rgba(89,53,62,0.18); border: 1px solid var(--gold-base);
+    transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.boton-editorial-inicio:hover { background: var(--white); transform: scale(1.02); }
+
+/* CONTROL MÚSICA */
+.music-btn {
+    position: fixed; bottom: 22px; right: 22px; width: 48px; height: 48px;
+    background: var(--white); color: var(--burgundy-text); border: 1px solid var(--gold-base); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; z-index: 4999; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(212,175,55,0.25); display: none; transition: transform 0.3s;
+}
+.music-btn:hover { transform: scale(1.08); }
+
+.editorial-wrapper { max-width: 480px; margin: 0 auto; background: var(--bg-pink); position: relative; box-shadow: 0 0 60px rgba(89,53,62,0.08); }
+.oculto { display: none !important; }
+
+/* TIPOGRAFÍA DORADA Y ROSADA DELUXE */
+.westonia-title { font-family: 'Westonia', serif; }
+.title-editorial { font-family: 'TAN-Angleton', serif; font-size: clamp(2rem, 6.5vw, 2.5rem); font-weight: 400; color: var(--burgundy-text); letter-spacing: 2px; text-transform: uppercase; }
+.sub-editorial { font-family: 'Times New Roman', Times, serif; font-size: clamp(1rem, 3.5vw, 1.15rem); color: var(--text-muted); line-height: 1.6; }
+
+section { padding: 55px 20px; border-bottom: 1px solid var(--border-gold); position: relative; }
+section.pink-tint { background: var(--pink-tint); border-color: rgba(212,175,55,0.25); }
+
+/* PORTADA HERO: SOLO VIDEO QUE QUEDA COMO FRAME FINAL/LOOP ESTÁTICO */
+.hero-cover { height: 95vh; position: relative; display: flex; flex-direction: column; justify-content: center; padding: 0; overflow: hidden; }
+.hero-video-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* PASE VIP DINÁMICO */
+.vip-badge {
+    background: var(--white); border: 1px solid var(--gold-base); padding: 16px 22px;
+    margin: -30px 25px 35px 25px; border-radius: 6px; position: relative; z-index: 10;
+    box-shadow: 0 10px 30px rgba(212,175,55,0.18);
+    font-family: 'Times New Roman', Times, serif;
+}
+.vip-badge span { font-size: 0.68rem; letter-spacing: 2px; color: var(--gold-dark); text-transform: uppercase; display: block; font-weight: 500; }
+.vip-badge strong { font-size: 1.3rem; color: var(--burgundy-text); display: block; margin-top: 4px; font-weight: 600; font-family: 'TAN-Angleton', serif; }
+
+/* SECCIONES IMAGEN FULL (1.png) */
+.image-only-section { padding: 30px 10px; background-color: var(--pink-tint); border-bottom: 1px solid var(--border-gold); text-align: center; }
+.full-section-img { width: 94%; max-width: 440px; height: auto; display: block; margin: 0 auto; border-radius: 4px; }
+
+/* DRESS CODE CON FONDO BLANCO (3.PNG) */
+.dresscode-white-section { padding: 35px 15px; background-color: #ffffff; border-bottom: 1px solid var(--border-gold); text-align: center; }
+.dresscode-white-section img { width: 82%; max-width: 320px; height: auto; display: block; margin: 0 auto; border-radius: 4px; }
+
+/* SAVE THE DATE 3 CÍRCULOS DORADOS */
+.circles-grid { display: flex; justify-content: center; gap: 18px; margin: 30px 0; }
+.circle-btn {
+    width: 74px; height: 74px; border-radius: 50%; border: 1.5px solid var(--gold-base);
+    background: var(--white); color: var(--burgundy-text); font-family: 'Times New Roman', Times, serif;
+    font-weight: 500; font-size: 0.95rem; cursor: pointer; letter-spacing: 1.5px; text-transform: uppercase;
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s, color 0.4s, border-color 0.4s;
+    box-shadow: 0 8px 25px rgba(212,175,55,0.2);
+}
+.circle-btn.revealed { background: var(--burgundy-text); border-color: var(--gold-base); color: var(--white); transform: rotateY(360deg) scale(1.05); }
+
+.revealed-date-container { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.8s ease, max-height 0.8s ease; }
+.revealed-date-container.show-revealed { opacity: 1; max-height: 600px; margin-top: 25px; }
+.day-text { font-size: 1.4rem; font-family: 'Times New Roman', Times, serif; font-weight: 600; color: var(--burgundy-text); margin: 15px 0 22px 0; letter-spacing: 1px; }
+
+.countdown-grid { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+.timer-box { 
+    background: var(--white); border: 1px solid var(--border-gold); padding: 14px 10px; 
+    border-radius: 6px; min-width: 74px; box-shadow: 0 8px 20px rgba(89,53,62,0.06); 
+    transition: transform 0.3s;
+    font-family: 'Times New Roman', Times, serif;
+}
+.timer-box:hover { transform: translateY(-3px); }
+.timer-box span { font-size: 1.5rem; font-weight: 600; color: var(--burgundy-text); display: block; font-family: 'TAN-Angleton', serif; }
+.timer-box small { font-size: 0.62rem; color: var(--gold-dark); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; display: block; font-weight: 500; }
+
+/* UBICACIÓN */
+.location-clean { margin: 10px 0; }
+.location-icon { width: 52px; height: 52px; background: var(--white); border: 1.5px solid var(--gold-base); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; color: var(--gold-dark); font-size: 1.25rem; box-shadow: 0 6px 18px rgba(212,175,55,0.18); }
+
+.btn-editorial {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--burgundy-text); color: var(--white);
+    text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    border-radius: 4px; transition: all 0.3s; margin: 4px; border: 1.5px solid var(--gold-base);
+    font-weight: 500; font-family: 'Times New Roman', Times, serif;
+}
+.btn-editorial:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(89,53,62,0.25); }
+.btn-editorial.gold { background: var(--gold-base); border-color: var(--gold-dark); color: #fff; }
+.btn-editorial.gold:hover { background: var(--gold-dark); }
+
+/* SUGERENCIA DE REGALO LUXURY */
+.gift-card-luxury {
+    background: var(--white); border: 1.5px solid var(--gold-base); border-radius: 6px;
+    padding: 30px 22px; margin-top: 25px; box-shadow: 0 15px 40px rgba(212,175,55,0.15);
+    text-align: left; position: relative; background-image: radial-gradient(circle at top right, rgba(212,175,55,0.15), transparent 70%);
+    font-family: 'Times New Roman', Times, serif;
+}
+.gift-tag-top {
+    position: absolute; top: -11px; left: 24px; background: var(--pink-tint); border: 1px solid var(--gold-base);
+    padding: 3px 12px; font-size: 0.7rem; color: var(--gold-dark); letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+}
+
+/* RSVP CON ESPACIO Y BORDES COMPLETOS DE 4.PNG */
+.rsvp-section-bg {
+    background-size: 92% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding: 85px 25px;
+    border-bottom: 1px solid var(--border-gold);
+}
+.rsvp-content-direct {
+    position: relative;
+    z-index: 2;
+    padding: 15px 10px;
+}
+
+/* CIERRE ROMÁNTICO */
+.closing-section {
+    background: linear-gradient(to bottom, var(--pink-tint), rgba(253, 250, 251, 0));
+    padding: 70px 25px 45px 25px; border-bottom: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+.closing-gold-tan {
+    font-family: 'TAN-Angleton', serif;
+    font-size: 2.2rem;
+    color: var(--gold-base);
+    letter-spacing: 3px;
+    margin-top: 6px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+    filter: drop-shadow(0 2px 4px rgba(170, 130, 10, 0.25));
+}
+
+footer { padding: 30px 20px; font-size: 0.68rem; letter-spacing: 3px; color: var(--burgundy-text); text-transform: uppercase; opacity: 0.8; font-family: 'Times New Roman', Times, serif; }
+
+/* ANIMACIONES */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.mt-25 { margin-top: 25px; }
